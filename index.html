@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Twitter Analysis</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="js/c3.min.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="js/d3.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/c3.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Name', 'Percentage'],
+        ['Retweets',     19505],
+        ['Original Tweets',      5986],
+
+      ]);
+
+      var options = {
+        title: 'The proportion of tweets',
+        chartArea:{left:300, height:'75%'},
+        pieHole: 0.4,
+        backgroundColor: 'transparent',
+        titleTextStyle:{
+                        color: 'white',
+                        fontName: 'Open Sans',
+                        fontSize: '24',
+
+                        },
+        colors: ['775ecd','D7D0F1'],
+        pieSliceBorderColor: 'D7D0F1',
+        legend:{textStyle: {
+                    color: 'white',
+                    },
+                  },
+       };
+
+       var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Name', 'Number'],
+          ['Tweets from other users',     24651],
+          ['Tweets from top 10',      720],
+
+        ]);
+
+        var options = {
+          backgroundColor: 'transparent',
+          colors: ['775ecd','D7D0F1'],
+          pieSliceBorderColor: 'D7D0F1',
+          legend:{textStyle: {
+                      color: 'white',
+                      },
+                    },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script type="text/javascript">
+   google.charts.load('current', {'packages':['bar']});
+   google.charts.setOnLoadCallback(drawStuff);
+
+   function drawStuff() {
+     var data = new google.visualization.arrayToDataTable([
+       ['Number of tweets', 'Number'],
+       [">100", 2],
+       ["50-100", 5],
+       ["30-50", 13],
+       ["10-30", 276],
+       ['1-10', 4483],
+       ['1', 20709]
+     ]);
+
+     var options = {
+       title: 'The activity level of users',
+       width: 900,
+       legend: { position: 'none' },
+       chart: { title: 'Number of tweets',
+                subtitle: 'Number' },
+       bars: 'horizontal', // Required for Material Bar Charts.
+       axes: {
+         x: {
+           0: { side: 'top', label: 'Percentage'} // Top x-axis.
+         }
+       },
+       bar: { groupWidth: "90%" }
+     };
+
+     var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+     chart.draw(data, options);
+   };
+ </script>
+
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Opening Move', 'Percentage'],
+          ["King's pawn (e4)", 44],
+          ["Queen's pawn (d4)", 31],
+          ["Knight to King 3 (Nf3)", 12],
+          ["Queen's bishop pawn (c4)", 10],
+          ['Other', 3]
+        ]);
+
+        var options = {
+          title: 'Chess opening moves',
+          backgroundColor: 'transparent',
+          width: 900,
+          legend: { position: 'none' },
+          chart: { title: 'Chess opening moves',
+                   subtitle: 'popularity by percentage' },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Percentage'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        chart.draw(data, options);
+      };
+    </script>
+
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+      </i> Dan Lu
+        <span class="d-none d-lg-inline-block"><i class="icofont-clock-time icofont-rotate-180"></i> Goldsmiths</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo mr-auto"><a href="index.html">Social Media Analysis</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="#about">Introduction</a></li>
+          <li><a href="#gallery">Topic/Hashtags</a></li>
+          <li><a href="#specials">Collecting the data</a></li>
+          <li><a href="#events">Analysing the data</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1>The data report about <span>Twitter Analysis</span></h1>
+          <h2>Blackpink and Blinks</h2>
+
+          <div class="btns">
+            <a href="#about" class="btn-menu animated fadeInUp scrollto">Go Now!</a>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+          <a href="https://www.youtube.com/watch?v=2S24-y0Ij3Y" class="venobox play-btn" data-vbtype="video" data-autoplay="true"></a>
+        </div>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Introduction Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-12 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+          <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>Introduction of hashtags</h3>
+            <p>
+              Most of the hashtags in this topic are Blackpink fans Blink complaining about unfair posts for their idols. Blackpink is very popular in 2020, and they have become the top girl group at the moment. They have received high praise in major music media and social software. The four of them became top stars in the current k -pop field, breaking records and becoming the music group with the most subscribers on the Youtube platform. In 2019, they broke three Guinness World Records with the single "Kill This Love", with more than 312 million views on Spotify and more than 824 million views on YouTube. Like many successful musicians, Blackpink also knows how to combine music and the power of the fashion world to blend together they understands the power of combining the world of music and fashion and maintains long-term partnerships with fashion brands.            </p>
+            <p>
+              K-pop girl group fans from all over the world are dissatisfied with the company's current management, protesting against YG Entertainment on social media and claiming the company's abuse of them.            </p>
+            <p>
+              For example, in Peru, #FREEBLACKPINK is a hot topic on Twitter, with nearly 20,000 comments at 5:00 pm EST, and #BlinkPrioritizeMusic entries are also on the rise in other regions all around the world.            </p>
+            <p>
+              Fans believes BLACKPINK continues to be treated badly by YG(their company in Korea): They didn’t get enough artistic freedom, lacked assistance in winning awards, and the company only allowed them to release a few music, and have reduced their investment in this girl group to gain more profits. Although they made huge gains in the United States this year, there’s no denying a relative lack of music from the girl group. Blackpink has only released 13 original songs since their debut.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Introduction Section -->
+
+    <!-- ======= Topic/Hashtags Section ======= -->
+    <section id="gallery" class="gallery">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Introduction</h2>
+          <p>Data Analysis</p>
+          <br>
+          <br>
+          <i>
+            In the era of pandemic, social media plays an important role in daily life, becoming the main way for people to understand the world and helping people contact others and expand their circles. Nearly 30% of consumers hope to establish more intimate connections through social media. From the perspective of marketing, social media has important analytical significance, and advertising strategies need to be adjusted accordingly through its trends and data.
+          </i>
+          <br>
+          <br>
+          <i>
+            Analysing social media data becomes a good primary source for social research. Tweet enables us to gain insight into online public behaviours and analysing Twitter has become an important source of information for brands and agents.
+          </i>
+          <br>
+          <br>
+          <i>
+            Unlike other social media platform indexes, Twitter API is open and accessible, so Twitter becomes more suitable tools for developers to get access to the data, which increases the possibility of researchers using developing and evaluating informatics tools.          </i>
+          <br>
+          <br>
+          <i>
+            At the same time, Twitter data is easy to retrieve, because the main events, news stories and events on Twitter are usually used with hashtags. Searching hashtags directly can easily attain the relevant data.
+          </i>
+        </div>
+      </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Topic/Hashtags Section -->
+
+    <!-- ======= Three Steps Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Introduction</h2>
+          <p>Three Steps</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="box" data-aos="zoom-in" data-aos-delay="100">
+              <span>01</span>
+              <h4>Collecting the data</h4>
+              <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box" data-aos="zoom-in" data-aos-delay="200">
+              <span>02</span>
+              <h4>Cleaning the data</h4>
+              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box" data-aos="zoom-in" data-aos-delay="300">
+              <span>03</span>
+              <h4>Anaylsing the data</h4>
+              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Three Steps Section -->
+
+    <!-- ======= Collecting the data Section ======= -->
+    <section id="menu" class="menu section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Collection</h2>
+          <p>Collecting the data</p>
+        </div>
+
+          <div class="col-lg-12 menu-item filter-starters">
+            <div class="menu-ingredients">
+            It is easy to collect data and run multiple archives by setting up tags only once, which simplifies the procedures of connection with Twitter; and tags can directly create a new Google form to collect and store the data with better capacity and performance.
+            </div>
+            <br>
+            <div class="menu-ingredients">
+              The number of collected tweets must be between a few thousand to 2 million to make the data most suitable for analysis. Too much or too little will cause corresponding problems. Therefore, by using "FREEBLACKPINK /BlinkPrioritizeMusic/ GlobeBLACKPINK/ BlackpinkDontCareAboutBlinks" as keywords, the most relevant information can be collected most effectively, and different hashtags can be connected through OR to filter out all the data containing four hashtags. trying to use #blackpink to search, there are the topic is too hot in Twitter, with almost a million pieces of data every day, so too many tweets are not conducive to analysis as a topic. Too few tweets for a single keyword and insufficient data may cause bias in the results.
+            </div>
+            <br>
+            <div class="menu-ingredients">
+            From December 27th, 2020 to December 29th, 2020, a total of 25,490 data was collected on this topic, including 5,985 original tweets and 19,505 re-tweets. Obviously, 76.52% of the data comes from retweets, which shows that people prefer to retweet on this topic.
+            </div>
+            <br>
+            <div class="menu-ingredients">
+              The time series of tweets are below.
+            </div>
+            <div class="menu-ingredients">
+              It is clear to see that there was a rapid decrease in the number of tweets after 8 am, December 28th. Starting from almost 2500 people tweeting around 22:00 on December 27th in 2020, this figure rose signifcantly to a peak of about over 3500.
+            </div>
+          <!-- time series iframe embeded -->
+          <iframe title="Timeline of tweets" aria-label="Interactive line chart" id="datawrapper-chart-3IC3A"
+          src="https://datawrapper.dwcdn.net/3IC3A/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;"
+          height="400"></iframe>
+          <script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}}))}();
+          </script>
+
+          </div>
+
+        </div>
+
+
+    </section><!-- End Collecting Section -->
+
+  <!-- ======= Cleaning the data Section ======= -->
+  <section id="menu" class="menu section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Cleaning</h2>
+          <p>Cleaning the data</p>
+        </div>
+
+          <div class="col-lg-12 menu-item filter-starters">
+            <div class="menu-ingredients">
+              In order to confirm the popularity and accuracy of the data, we must first exclude robots and official accounts. However, due to the particularity of this topic, fans were creators who established the hashtags to complain against YG, so there is no official account in this topic, and only robots need to be excluded. The first step is using the tool called Botometer to preliminary screen the robot, and then searching for the user on Twitter. Observing the total number of tweets, content and frequency of tweets is an effective way to find the robot.             </div>
+            <br>
+            <div class="menu-ingredients">
+              Among the top 10 users on this topic, only two are bots, namely KPhiannapa and Anglica53495472. KPhiannapa has joined Twitter for a short time, who joined April 2020, but a total of 6,436 Tweets have been published and only has 6 following and 2 followers, indicating this user is a robot. Another user, named Anglica53495472, who joined in November in 2020, has published for 4208 tweets. Although she has 15 followers, there is not enough evidence to show that this account is not a robot.
+            <br>
+            <br>
+            </div>
+            <div id="donutchart" style="width: 900px; height: 500px;"></div>
+          </div>
+        </div>
+
+
+
+
+    </section><!-- End Cleaning Section -->
+
+
+    <!-- ======= Analysing the data Section ======= -->
+    <section id="menu" class="menu section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Analysis</h2>
+          <p>Analysing the data</p>
+        </div>
+
+        <div class="col-lg-12 menu-item filter-starters">
+
+          <div class="menu-ingredients">
+              •	Top tweeters and top retweeters
+          </div>
+          <br>
+          <div class="menu-ingredients">
+            In my raw data, there are 11,434 users in total, and the top tweeters and retweeters are overlap, RLoza13 is top tweeter and retweeter who tweeted 183 and retweeted 92 during the time. The other two in top 3 tweeters and retweeters are Catheri66762085 and StylZarai. Although the top tweeters and retweeters made a big contribution to this topic (720 tweets from top 10, account for 3.42%), it is clearly that it is still a very small amount compared with the whole volume of data.
+          </div>
+          <br>
+       </div>
+
+        <div class="col-lg-6 menu-item filter-starters">
+            <div class="menu-ingredients">
+              <div class="flourish-embed flourish-table" data-src="visualisation/4904705">
+                <script src="https://public.flourish.studio/resources/embed.js"></script></div>
+            </div>
+        </div>
+    </div>
+
+    </section><!-- End Cleaning Section -->
+
+    <!-- =======  Section ======= -->
+    <section id="specials" class="specials">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Analysis</h2>
+          <p>Analysing the data</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-toggle="tab" href="#tab-1">The top retweet</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-2">Ratio of tweets and retweet</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-3">Top 10 Twitter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-4">Top 10 Retwitter</a>
+              </li>
+
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>The top retweet</h3>
+                    <p class="font-italic">
+                      "RT @enjoyGLOBE: Don't blink. Reinvention is here. Are you ready for #GlobeBLACKPINK? https://t.co/huy3JCGtPA"
+                    </p>
+                    <p>
+                      The top retweet was retweeted of 1578，and the original tweet published on December 27th, 2020 by enjoyGLOBE has been sent for over 29,000 and got 104,600 quote tweets, 104,600 likes at the same time.
+                    </p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/specials-1.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-2">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Ratio of tweets and retweet</h3>
+                    <p class="font-italic">
+                      The ratio of tweets to retweets in my data set is 1.31.
+                    </p>
+                    <p>
+                      Most of the tweets are reposted articles, and the operation of reposting articles is easier. Fans hope to protest for their idols. Therefore, compared to the high quality of original articles, fans are more inclined to high number of tweets and high retweet volume.
+                    </p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-3">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Top 10 Twitter</h3>
+                    <p>In addition,  the top 10 Twitter accounted for 871, accounting for 3.42% of all tweets. </p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                      <div id="piechart" style="width: 900px; height: 200px;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-4">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Top 10 Retwitter</h3>
+                    <p>At the same time, the top 10 retweets are 6415, accounting for 32.89% of all retweets.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/specials-4.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-5">
+                <div class="row">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Specials Section -->
+
+    <!-- ======= Wordcloud Section ======= -->
+    <section id="events" class="events">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Analysis</h2>
+          <p>Analysing the data</p>
+        </div>
+
+        <div class="owl-carousel events-carousel" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="row event-item">
+            <div class="col-lg-6">
+              <img src="assets/img/wordcloud.svg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3>Wordcloud</h3>
+              <p>
+                This graphic shows the details of the main content of the top 50 tweeters. The biggest one is the blackpink which is the keywords in the topic, and people also mentioned the “Globe blackink”, “FreeBlackpink”, “RT” and “better” in these tweets. This topic is also related to #BLACKPINK, #BLINK and #YouMadeBLINKsProud.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Wordcloud Section -->
+
+
+    <!-- ======= Location Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Analysis</h2>
+          <p>Analysing the data</p>
+        </div>
+
+
+          <div class="testimonial-item">
+            <p>
+              In more than 20,000 tweets, there is no tweet including geo code and there are 11954 users added the locations in their tweets, which accounted for 46.90%. In the raw data, some people created the original locations related to the topic, so it’s necessary to tidy up and category the data. After cleaning the data, there are less than 5631 effective tweets.
+            </p>
+            <br>
+            <p>
+              According to the statistics, it was clear to see that the top 3 locations are Thailand (includes 356 users from Bangkok), Republic of the Philippines and Indonesia. It can be seen that people from South Asia really like to share their locations when they posted the tweets online. And it might be supposed that people from the Republic of Korea, Spanish and Peru also drew their attention to this topic compared with the users in other countries.
+            </p>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Location Section -->
+
+    <!-- ======= Demographic groupings Section ======= -->
+    <section id="gallery" class="gallery">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Analysis</h2>
+          <p>Analysing the data</p>
+          <br>
+          <br>
+          <i>
+            •	Demographic groupings
+          </i>
+          <br>
+          <br>
+          <i>
+            Using the formula in the excel, it is easy to categorize users by the number of tweets. The chart can show the spread range of this topic, and there is a negative correlation between the number of users and the number of tweets.  According to the graph, there are only two people sent over 100 tweets of this topic. In contrast, it is clear to see that the majority of users only sent 1 tweet during this period (20709 users). In addition, the number of users tweeting between 10 and 30 is 20 times more than those tweeting between 30 and 50.
+          </i>
+          <br>
+          <br>
+           <div id="top_x_div" style="width: 900px; height: 500px;"></div>
+          <br>
+          <br>
+          <i>
+            The information influence is related to the amounts of user followers and user friends. As the number of followers and friends of the user grows, the influence and spread of that tweet increases. The detailed data can be seen in these two graphs.
+          </i>
+          <br>
+          <br>
+           <div id="top_x_div" style="width: 900px; height: 500px;"></div>
+          <br>
+          <br>
+          <i>
+            As only two users have over 10,000,000 followers, and the majority of users have 100 to 9,999 followers. There were 16.71% of users had more than one thousand followers and less than one 10 thousand, as the number of users whose sum of followers from 100 to 1000 is similar to those below 100, which account for around 40%.
+          </i>
+          <br>
+          <br>
+          <i>
+            Besides, the majority of users have 100 to 9,999 friends. There were 2,398 users which had more than one thousand friends and less than ten thousand, and 149 users which had more than ten thousand friends and less than hundred thousand.          </i>
+          <br>
+        </div>
+      </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Demographic groupings Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Restaurantly</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/restaurantly-restaurant-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
