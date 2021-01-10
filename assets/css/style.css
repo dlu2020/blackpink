@@ -131,7 +131,7 @@ li.six:before {
   width: 44px;
   height: 44px;
   border-radius: 50px;
-  color: #cda45e;
+  color: #775ecd;
   transition: all 0.4s;
   border: 2px solid #775ecd;
 }
@@ -168,7 +168,7 @@ li.six:before {
 }
 
 #topbar .contact-info i {
-  color: #d9ba85;
+  color: #775ecd;
   padding-right: 4px;
 }
 

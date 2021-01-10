@@ -331,10 +331,11 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">Introduction</a></li>
-          <li><a href="#gallery">Topic/Hashtags</a></li>
-          <li><a href="#specials">Collecting the data</a></li>
-          <li><a href="#events">Analysing the data</a></li>
+          <li><a href="#about">Topic/Hashtags</a></li>
+          <li><a href="#gallery">Introduction</a></li>
+          <li><a href="#collecting">Collecting the data</a></li>
+          <li><a href="#cleaning">Cleaning the data</a></li>
+          <li><a href="#analysis">Analysing the data</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -363,7 +364,7 @@
 
   <main id="main">
 
-    <!-- ======= Introduction Section ======= -->
+    <!-- ======= Topic/Hashtags Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
@@ -386,9 +387,9 @@
         </div>
 
       </div>
-    </section><!-- End Introduction Section -->
+    </section><!-- End Hashtags/topic Section -->
 
-    <!-- ======= Topic/Hashtags Section ======= -->
+    <!-- =======Introduction Section ======= -->
     <section id="gallery" class="gallery">
 
       <div class="container" data-aos="fade-up">
@@ -411,7 +412,7 @@
           </p>
         </div>
       </div>
-    </section><!-- End Topic/Hashtags Section -->
+    </section><!-- End Introduction Section -->
 
     <!-- ======= Three Steps Section ======= -->
     <section id="why-us" class="why-us">
@@ -453,7 +454,7 @@
     </section><!-- End Three Steps Section -->
 
     <!-- ======= Collecting the data Section ======= -->
-    <section id="menu" class="menu section-bg">
+    <section id="collecting" class="menu section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -495,7 +496,7 @@
     </section><!-- End Collecting Section -->
 
   <!-- ======= Cleaning the data Section ======= -->
-  <section id="menu" class="menu section-bg">
+  <section id="cleaning" class="menu section-bg">
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -523,7 +524,7 @@
 
 
     <!-- ======= Analysing the data Section ======= -->
-    <section id="menu" class="menu section-bg">
+    <section id="analysis" class="menu section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -656,7 +657,7 @@
     </div>
     </section><!-- End Cleaning Section -->
 
-    <!-- =======  Section ======= -->
+    <!-- =======  Analysis Section ======= -->
     <section id="specials" class="specials">
       <div class="container" data-aos="fade-up">
 
@@ -701,6 +702,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="tab-pane" id="tab-2">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
@@ -713,7 +715,7 @@
                     </p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-
+                    <img src="assets/img/BLACKPINK-Encore-Concert.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -749,7 +751,7 @@
         </div>
 
       </div>
-    </section><!-- End Specials Section -->
+    </section><!-- End Analysis Section -->
 
     <!-- ======= Wordcloud Section ======= -->
     <section id="events" class="events">
@@ -789,7 +791,7 @@
         </div>
 
 
-        <div class="testimonial-item">
+        <div class="content">
           <p>
             In more than 20,000 tweets, there is no tweet including geo code and there are 11954 users added the locations in their tweets, which accounted for 46.90%. In the raw data, some people created the original locations related to the topic, so it’s necessary to tidy up and category the data. After cleaning the data, there are less than 5631 effective tweets.
           </p>
@@ -844,7 +846,7 @@
                 </tr>
               </table>
             </div>
-
+            <br>.
             <p>
               According to the statistics, it was clear to see that the top 3 locations are Thailand (includes 356 users from Bangkok), Republic of the Philippines and Indonesia. It can be seen that people from South Asia really like to share their locations when they posted the tweets online. And it might be supposed that people from the Republic of Korea, Spanish and Peru also drew their attention to this topic compared with the users in other countries.
             </p>
@@ -854,7 +856,7 @@
     </section><!-- End Location Section -->
 
     <!-- ======= Demographic groupings Section ======= -->
-    <section id="gallery" class="gallery">
+    <section id="demographic" class="gallery">
 
       <div class="container" data-aos="fade-up">
         <div class="section-title">
@@ -878,17 +880,17 @@
           </p>
 
           <div class="row no-gutters">
-
-          <div class="col-lg-6 col-md-8">
-            <div class="gallery-item">
-               <div id="graph-analysing-data-2" style="width: 600px; height: 350px;"></div>
+            <!-- **graph 2 here** -->
+            <div class="col-lg-6 col-md-8">
+              <div class="gallery-item">
+                 <div id="graph-analysing-data-2" style="width: 600px; height: 350px;"></div>
+              </div>
             </div>
-          </div>
 
-         <div class="col-lg-6 col-md-8">
-           <!-- **graph 3 here** -->
-            <div id="graph-analysing-data-3" style="width: 600px; height: 350px;"></div>
-          </div>
+           <div class="col-lg-6 col-md-8">
+             <!-- **graph 3 here** -->
+              <div id="graph-analysing-data-3" style="width: 600px; height: 350px;"></div>
+            </div>
           </div>
 
           <p>
