@@ -29,6 +29,42 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", serif;
 }
 
+li {
+  color: #fff;
+  list-style: none;
+  position: relative;
+  padding-left: 30px;
+  line-height: 2;
+  font-size: 20px;
+}
+li:hover:before {
+  color: #fff;
+}
+li:before {
+  font-family: FontAwesome;
+  position: absolute;
+  left: 0;
+  color: #318ca0;
+  font-size: 15px;
+}
+li.one:before {
+  content: "\f111";
+}
+li.two:before {
+  content: "\f00c";
+}
+li.three:before {
+  content: "\f10c";
+}
+li.four:before {
+  content: "\f004";
+}
+li.five:before {
+  content: "\f1e2";
+}
+li.six:before {
+  content: "\f0e7";
+}
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -889,9 +925,15 @@ section {
   color: #fff;
 }
 
+.gallery .content i {
+  font-size: 20px;
+  font-weight: 600;
+  font-style: normal;
+}
+
 .gallery .details p {
   color: #aaaaaa;
-  font-size: 1px;
+  font-size: 20px;
   font-weight: 600;
 
 }

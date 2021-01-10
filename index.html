@@ -30,6 +30,43 @@
   <link href="js/c3.min.css" rel="stylesheet" type="text/css">
   <script type="text/javascript" src="js/d3.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="js/c3.min.js"></script>
+
+  <!-- Draw table graph3 -->
+  <style>
+  .center {
+      margin: auto;
+      width: 60%;
+      padding: 10px;
+    }
+  </style>
+
+  <style>
+
+  #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #customers tr:nth-child(even){background-color: #191713;}
+
+  #customers tr:hover {background-color: #364E5D;}
+
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #775ecd;
+    color: white;
+  }
+  </style>
+
+<!-- Draw donutchart graph -->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load("current", {packages:["corechart"]});
@@ -51,7 +88,6 @@
                         color: 'white',
                         fontName: 'Open Sans',
                         fontSize: '24',
-
                         },
         colors: ['775ecd','D7D0F1'],
         pieSliceBorderColor: 'D7D0F1',
@@ -66,107 +102,209 @@
     }
   </script>
 
+<!-- Draw piechart graph -->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+  <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart1);
+      google.charts.setOnLoadCallback(drawChart2);
 
-      function drawChart() {
+      function drawChart1() {
 
         var data = google.visualization.arrayToDataTable([
           ['Name', 'Number'],
           ['Tweets from other users',     24651],
-          ['Tweets from top 10',      720],
-
+          ['Tweets from top 10',      720]
         ]);
 
         var options = {
           backgroundColor: 'transparent',
           colors: ['775ecd','D7D0F1'],
           pieSliceBorderColor: 'D7D0F1',
-          legend:{textStyle: {
-                      color: 'white',
+          legend:{textStyle: {color: 'white',
                       },
                     },
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-      }
-    </script>
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
- <script type="text/javascript">
-   google.charts.load('current', {'packages':['bar']});
-   google.charts.setOnLoadCallback(drawStuff);
-
-   function drawStuff() {
-     var data = new google.visualization.arrayToDataTable([
-       ['Number of tweets', 'Number'],
-       [">100", 2],
-       ["50-100", 5],
-       ["30-50", 13],
-       ["10-30", 276],
-       ['1-10', 4483],
-       ['1', 20709]
-     ]);
-
-     var options = {
-       title: 'The activity level of users',
-       width: 900,
-       legend: { position: 'none' },
-       chart: { title: 'Number of tweets',
-                subtitle: 'Number' },
-       bars: 'horizontal', // Required for Material Bar Charts.
-       axes: {
-         x: {
-           0: { side: 'top', label: 'Percentage'} // Top x-axis.
-         }
-       },
-       bar: { groupWidth: "90%" }
-     };
-
-     var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-     chart.draw(data, options);
-   };
- </script>
-
- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-          ['Opening Move', 'Percentage'],
-          ["King's pawn (e4)", 44],
-          ["Queen's pawn (d4)", 31],
-          ["Knight to King 3 (Nf3)", 12],
-          ["Queen's bishop pawn (c4)", 10],
-          ['Other', 3]
-        ]);
-
-        var options = {
-          title: 'Chess opening moves',
-          backgroundColor: 'transparent',
-          width: 900,
-          legend: { position: 'none' },
-          chart: { title: 'Chess opening moves',
-                   subtitle: 'popularity by percentage' },
-          bars: 'horizontal', // Required for Material Bar Charts.
-          axes: {
-            x: {
-              0: { side: 'top', label: 'Percentage'} // Top x-axis.
-            }
-          },
-          bar: { groupWidth: "90%" }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
         chart.draw(data, options);
       };
+
+
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Name', 'Number'],
+          ['Reweets from other users',     24651],
+          ['Reweets from top 10',      720]
+        ]);
+
+      var options = {
+          backgroundColor: 'transparent',
+          colors: ['775ecd','D7D0F1'],
+          pieSliceBorderColor: 'D7D0F1',
+          legend:{textStyle: {
+                        color: 'white',
+                        },
+                      },
+          };
+
+     var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+     chart.draw(data, options);
+   };
+
     </script>
+
+ <!-- Draw Top x graph -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['bar']});
+  google.charts.setOnLoadCallback(drawTopX1);
+  google.charts.setOnLoadCallback(drawTopX2);
+  google.charts.setOnLoadCallback(drawTopX3);
+
+  function drawTopX1() {
+    var data = google.visualization.arrayToDataTable([
+      ['Number of tweets', 'Number of users'],
+      ['>100', 2],
+      ['50-100', 5],
+      ['30-50', 13],
+      ['10-30', 276],
+      ['1-10', 4483],
+      ['1', 20709],
+    ]);
+
+    var options = {
+      title: 'The activity level of users',
+      titleTextStyle:{
+                      color: 'white',
+                      fontName: 'Open Sans',
+                      fontSize: '24',
+                    },
+      colors: ['775ecd'],
+      chartArea: {width: '50%'},
+      orientation: 'horizontal',
+      vAxis: {
+        title: 'Number of users',
+        titleTextStyle: {
+        color: 'white'},
+        textStyle: {
+        color: 'white'},
+        minValue: 0
+      },
+      legend:{textStyle: {
+                   color: 'white',
+                   },
+                 },
+      hAxis: {
+        title: 'Number of tweets',
+        titleTextStyle: {
+        color: 'white'},
+        textStyle: {
+         color: 'white'},
+      },
+      backgroundColor:'transparent'
+    };
+
+    var chart = new google.visualization.BarChart(document.getElementById('graph-analysing-data-1'));
+    chart.draw(data, options);
+  };
+
+    function drawTopX2() {
+      var data = google.visualization.arrayToDataTable([
+        ['Number of followers', 'Number of users'],
+        ['>10,000k', 2],
+        ['100k-500k', 11],
+        ['100k-10k', 168],
+        ['10k-1k', 1911],
+        ['1k-100', 4286],
+        ['100-0', 4605],
+      ]);
+
+      var options = {
+        title: 'The influences of users',
+        titleTextStyle:{
+                        color: 'white',
+                        fontName: 'Open Sans',
+                        fontSize: '24',
+                      },
+        colors: ['775ecd'],
+        chartArea: {width: '50%'},
+        orientation: 'horizontal',
+        vAxis: {
+          title: 'Number of users',
+          titleTextStyle: {
+          color: 'white'},
+          textStyle: {
+          color: 'white'},
+          minValue: 0
+        },
+        legend:{textStyle: {
+                     color: 'white',
+                     },
+                   },
+        hAxis: {
+          title: 'Number of followers',
+          titleTextStyle: {
+          color: 'white'},
+          textStyle: {
+           color: 'white'},
+        },
+        backgroundColor:'transparent'
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('graph-analysing-data-2'));
+      chart.draw(data, options);
+    };
+
+
+    function drawTopX3() {
+      var data = google.visualization.arrayToDataTable([
+        ['Number of friends', 'Numbers of users'],
+        ['>100k', 3],
+        ['100k-10k', 149],
+        ['10k-1k', 2398],
+        ['1k-100', 6279],
+        ['<100', 2535],
+      ]);
+
+      var options = {
+        title: 'The influences of users',
+        titleTextStyle:{
+                        color: 'white',
+                        fontName: 'Open Sans',
+                        fontSize: '24',
+                      },
+        colors: ['775ecd'],
+        chartArea: {width: '50%'},
+        orientation: 'horizontal',
+        vAxis: {
+          title: 'Number of users',
+          titleTextStyle: {
+          color: 'white'},
+          textStyle: {
+          color: 'white'},
+          minValue: 0
+        },
+        legend:{textStyle: {
+                     color: 'white',
+                     },
+                   },
+        hAxis: {
+          title: 'Number of friends',
+          titleTextStyle: {
+          color: 'white'},
+          textStyle: {
+           color: 'white'},
+        },
+        backgroundColor:'transparent'
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('graph-analysing-data-3'));
+      chart.draw(data, options);
+    };
+
+  </script>
+
 
 </head>
 
@@ -257,30 +395,21 @@
         <div class="section-title">
           <h2>Introduction</h2>
           <p>Data Analysis</p>
-          <br>
-          <br>
-          <i>
+          </div>
+        <div class="content">
+          <p>
             In the era of pandemic, social media plays an important role in daily life, becoming the main way for people to understand the world and helping people contact others and expand their circles. Nearly 30% of consumers hope to establish more intimate connections through social media. From the perspective of marketing, social media has important analytical significance, and advertising strategies need to be adjusted accordingly through its trends and data.
-          </i>
-          <br>
-          <br>
-          <i>
+          </p>
+          <p>
             Analysing social media data becomes a good primary source for social research. Tweet enables us to gain insight into online public behaviours and analysing Twitter has become an important source of information for brands and agents.
-          </i>
-          <br>
-          <br>
-          <i>
-            Unlike other social media platform indexes, Twitter API is open and accessible, so Twitter becomes more suitable tools for developers to get access to the data, which increases the possibility of researchers using developing and evaluating informatics tools.          </i>
-          <br>
-          <br>
-          <i>
+          </p>
+          <p>
+            Unlike other social media platform indexes, Twitter API is open and accessible, so Twitter becomes more suitable tools for developers to get access to the data, which increases the possibility of researchers using developing and evaluating informatics tools.
+          </p>
+          <p>
             At the same time, Twitter data is easy to retrieve, because the main events, news stories and events on Twitter are usually used with hashtags. Searching hashtags directly can easily attain the relevant data.
-          </i>
+          </p>
         </div>
-      </div>
-
-        </div>
-
       </div>
     </section><!-- End Topic/Hashtags Section -->
 
@@ -299,7 +428,7 @@
             <div class="box" data-aos="zoom-in" data-aos-delay="100">
               <span>01</span>
               <h4>Collecting the data</h4>
-              <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+              <p>It is easy to collect data and run multiple archives by setting up tags only once, which simplifies the procedures of connection with Twitter.</p>
             </div>
           </div>
 
@@ -307,7 +436,7 @@
             <div class="box" data-aos="zoom-in" data-aos-delay="200">
               <span>02</span>
               <h4>Cleaning the data</h4>
-              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
+              <p>In order to confirm the popularity and accuracy of the data, we must first exclude robots and official accounts. </p>
             </div>
           </div>
 
@@ -315,12 +444,11 @@
             <div class="box" data-aos="zoom-in" data-aos-delay="300">
               <span>03</span>
               <h4>Anaylsing the data</h4>
-              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
+              <p>This part includes the top tweeters&top retweeters, the location of users and the influences of users in this topic.</p>
             </div>
           </div>
 
         </div>
-
       </div>
     </section><!-- End Three Steps Section -->
 
@@ -402,6 +530,7 @@
           <h2>Analysis</h2>
           <p>Analysing the data</p>
         </div>
+        <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
 
         <div class="col-lg-12 menu-item filter-starters">
 
@@ -413,16 +542,118 @@
             In my raw data, there are 11,434 users in total, and the top tweeters and retweeters are overlap, RLoza13 is top tweeter and retweeter who tweeted 183 and retweeted 92 during the time. The other two in top 3 tweeters and retweeters are Catheri66762085 and StylZarai. Although the top tweeters and retweeters made a big contribution to this topic (720 tweets from top 10, account for 3.42%), it is clearly that it is still a very small amount compared with the whole volume of data.
           </div>
           <br>
-       </div>
 
-        <div class="col-lg-6 menu-item filter-starters">
-            <div class="menu-ingredients">
-              <div class="flourish-embed flourish-table" data-src="visualisation/4904705">
-                <script src="https://public.flourish.studio/resources/embed.js"></script></div>
-            </div>
+        <div class="col-lg-6 menu-item">
+           <div class="content text-center">
+            <h4>
+              Top 10 tweeters
+            </h4>
+           </div>
+           <table id="customers">
+             <tr>
+               <th>User name</th>
+               <th>User name</th>
+             </tr>
+             <tr>
+               <td>RLoza13</td>
+               <td>186</td>
+             </tr>
+             <tr>
+               <td>Catheri66762085</td>
+               <td>170</td>
+             </tr>
+             <tr>
+               <td>StylZarai</td>
+               <td>71</td>
+             </tr>
+             <tr>
+             <td>slushymoney78</td>
+             <td>59</td>
+             </tr>
+             <tr>
+               <td>Chujenchaengli</td>
+               <td>59</td>
+             </tr>
+
+             <tr>
+               <td>redvelvetsexys</td>
+               <td>52</td>
+             </tr>
+             <tr>
+               <td>oyva_</td>
+               <td>52</td>
+             </tr>
+             <tr>
+               <td>brookiebean2</td>
+               <td>52</td>
+             </tr>
+             <tr>
+               <td>rosiemunkk_</td>
+               <td>51</td>
+             </tr>
+             <tr>
+               <td>Misuki13542855</td>
+               <td>49</td>
+             </tr>
+           </table>
         </div>
-    </div>
 
+        <div class="col-lg-6 menu-item">
+          <div class="content text-center">
+           <h4>
+             Top 10 retweeters
+           </h4>
+           <table id="customers">
+             <tr>
+               <th>User name</th>
+               <th>Number of tweets</th>
+             </tr>
+             <tr>
+               <td>RLoza13</td>
+               <td>186</td>
+             </tr>
+             <tr>
+               <td>Catheri66762085</td>
+               <td>168</td>
+             </tr>
+             <tr>
+               <td>StylZarai</td>
+               <td>71</td>
+             </tr>
+             <tr>
+               <td>slushymoney78</td>
+               <td>54</td>
+             </tr>
+             <tr>
+               <td>oyva_</td>
+               <td>52</td>
+             </tr>
+
+             <tr>
+               <td>brookiebean2</td>
+               <td>50</td>
+             </tr>
+             <tr>
+               <td>rosiemunkk_</td>
+               <td>48</td>
+             </tr>
+             <tr>
+               <td>redvelvetsexys</td>
+               <td>48</td>
+             </tr>
+             <tr>
+               <td>HidalgoBecky1</td>
+               <td>46</td>
+             </tr>
+             <tr>
+               <td>luzmaasv</td>
+               <td>42</td>
+             </tr>
+           </table>
+        </div>
+       </div>
+      </div>
+    </div>
     </section><!-- End Cleaning Section -->
 
     <!-- =======  Section ======= -->
@@ -459,14 +690,14 @@
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>The top retweet</h3>
                     <p class="font-italic">
-                      "RT @enjoyGLOBE: Don't blink. Reinvention is here. Are you ready for #GlobeBLACKPINK? https://t.co/huy3JCGtPA"
+                      "RT @enjoyGLOBE: Don't blink. Reinvention is here. Are you ready for #GlobeBLACKPINK?"
                     </p>
                     <p>
                       The top retweet was retweeted of 1578，and the original tweet published on December 27th, 2020 by enjoyGLOBE has been sent for over 29,000 and got 104,600 quote tweets, 104,600 likes at the same time.
                     </p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-1.png" alt="" class="img-fluid">
+                   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Don&#39;t blink. Reinvention is here. Are you ready for <a href="https://twitter.com/hashtag/GlobeBLACKPINK?src=hash&amp;ref_src=twsrc%5Etfw">#GlobeBLACKPINK</a>? <a href="https://t.co/huy3JCGtPA">pic.twitter.com/huy3JCGtPA</a></p>&mdash; Globe Telecom (@enjoyGLOBE) <a href="https://twitter.com/enjoyGLOBE/status/1343165587384487939?ref_src=twsrc%5Etfw">December 27, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                   </div>
                 </div>
               </div>
@@ -493,7 +724,7 @@
                     <p>In addition,  the top 10 Twitter accounted for 871, accounting for 3.42% of all tweets. </p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                      <div id="piechart" style="width: 900px; height: 200px;"></div>
+                      <div id="piechart1" style="width: 900px; height: 200px;"></div>
                   </div>
                 </div>
               </div>
@@ -504,7 +735,7 @@
                     <p>At the same time, the top 10 retweets are 6415, accounting for 32.89% of all retweets.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-4.png" alt="" class="img-fluid">
+                      <div id="piechart2" style="width: 900px; height: 200px;"></div>
                   </div>
                 </div>
               </div>
@@ -558,16 +789,65 @@
         </div>
 
 
-          <div class="testimonial-item">
-            <p>
-              In more than 20,000 tweets, there is no tweet including geo code and there are 11954 users added the locations in their tweets, which accounted for 46.90%. In the raw data, some people created the original locations related to the topic, so it’s necessary to tidy up and category the data. After cleaning the data, there are less than 5631 effective tweets.
-            </p>
-            <br>
+        <div class="testimonial-item">
+          <p>
+            In more than 20,000 tweets, there is no tweet including geo code and there are 11954 users added the locations in their tweets, which accounted for 46.90%. In the raw data, some people created the original locations related to the topic, so it’s necessary to tidy up and category the data. After cleaning the data, there are less than 5631 effective tweets.
+          </p>
+
+          <!-- Table graph here -->
+           <div class="center">
+              <table id="customers">
+                <tr>
+                  <th>Location</th>
+                  <th>User number</th>
+                </tr>
+                <tr>
+                  <td>Thailand</td>
+                  <td>454</td>
+                </tr>
+                <tr>
+                  <td>Republic of the Philippines</td>
+                  <td>270</td>
+                </tr>
+                <tr>
+                  <td>Indonesia</td>
+                  <td>169</td>
+                </tr>
+                <tr>
+                <td>Colombia</td>
+                <td>148</td>
+                </tr>
+                <tr>
+                  <td>Republic of Korea</td>
+                  <td>138</td>
+                </tr>
+
+                <tr>
+                  <td>Argentina</td>
+                  <td>122</td>
+                </tr>
+                <tr>
+                  <td>Spanish</td>
+                  <td>54</td>
+                </tr>
+                <tr>
+                  <td>Peru</td>
+                  <td>54</td>
+                </tr>
+                <tr>
+                  <td>Mexico</td>
+                  <td>51</td>
+                </tr>
+                <tr>
+                  <td>Chile</td>
+                  <td>37</td>
+                </tr>
+              </table>
+            </div>
+
             <p>
               According to the statistics, it was clear to see that the top 3 locations are Thailand (includes 356 users from Bangkok), Republic of the Philippines and Indonesia. It can be seen that people from South Asia really like to share their locations when they posted the tweets online. And it might be supposed that people from the Republic of Korea, Spanish and Peru also drew their attention to this topic compared with the users in other countries.
             </p>
-
-
         </div>
 
       </div>
@@ -580,37 +860,45 @@
         <div class="section-title">
           <h2>Analysis</h2>
           <p>Analysing the data</p>
-          <br>
-          <br>
-          <i>
+        </div>
+
+        <div class="content">
+          <p>
             •	Demographic groupings
-          </i>
-          <br>
-          <br>
-          <i>
+          </p>
+
+          <p>
             Using the formula in the excel, it is easy to categorize users by the number of tweets. The chart can show the spread range of this topic, and there is a negative correlation between the number of users and the number of tweets.  According to the graph, there are only two people sent over 100 tweets of this topic. In contrast, it is clear to see that the majority of users only sent 1 tweet during this period (20709 users). In addition, the number of users tweeting between 10 and 30 is 20 times more than those tweeting between 30 and 50.
-          </i>
-          <br>
-          <br>
-           <div id="top_x_div" style="width: 900px; height: 500px;"></div>
-          <br>
-          <br>
-          <i>
+          </p>
+          <!-- **graph 1 here** -->
+          <div id="graph-analysing-data-1" style="width: 900px; height: 500px;"></div>
+
+          <p>
             The information influence is related to the amounts of user followers and user friends. As the number of followers and friends of the user grows, the influence and spread of that tweet increases. The detailed data can be seen in these two graphs.
-          </i>
-          <br>
-          <br>
-           <div id="top_x_div" style="width: 900px; height: 500px;"></div>
-          <br>
-          <br>
-          <i>
+          </p>
+
+          <div class="row no-gutters">
+
+          <div class="col-lg-6 col-md-8">
+            <div class="gallery-item">
+               <div id="graph-analysing-data-2" style="width: 600px; height: 350px;"></div>
+            </div>
+          </div>
+
+         <div class="col-lg-6 col-md-8">
+           <!-- **graph 3 here** -->
+            <div id="graph-analysing-data-3" style="width: 600px; height: 350px;"></div>
+          </div>
+          </div>
+
+          <p>
             As only two users have over 10,000,000 followers, and the majority of users have 100 to 9,999 followers. There were 16.71% of users had more than one thousand followers and less than one 10 thousand, as the number of users whose sum of followers from 100 to 1000 is similar to those below 100, which account for around 40%.
-          </i>
-          <br>
-          <br>
-          <i>
-            Besides, the majority of users have 100 to 9,999 friends. There were 2,398 users which had more than one thousand friends and less than ten thousand, and 149 users which had more than ten thousand friends and less than hundred thousand.          </i>
-          <br>
+          </p>
+
+          <p>
+            Besides, the majority of users have 100 to 9,999 friends. There were 2,398 users which had more than one thousand friends and less than ten thousand, and 149 users which had more than ten thousand friends and less than hundred thousand.
+          </p>
+        </div>
         </div>
       </div>
 
