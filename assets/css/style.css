@@ -129,7 +129,6 @@ li.six:before {
   justify-content: center;
   font-size: 24px;
   width: 44px;
-  height: 44px;
   border-radius: 50px;
   color: #775ecd;
   transition: all 0.4s;
@@ -517,7 +516,7 @@ li.six:before {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/blackpink1.jpeg") top center;
+  background: url("../img/Blackpink1.jpg") top center;
   background-size: cover;
   position: relative;
   padding: 0;
